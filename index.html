@@ -219,6 +219,19 @@ form{ display:flex; flex-direction:column; gap:15px; }
 .field textarea{ min-height:112px; resize:vertical; }
 .field input:focus, .field textarea:focus{ outline:none; border-color:var(--gold); background:#fff; }
 .form-note{ font-size:.72rem; color:var(--ink-soft); text-align:center; margin-top:-4px; }
+.field .opt{ font-weight:400; letter-spacing:.04em; text-transform:none; color:var(--ink-soft); font-size:.72rem; }
+
+/* ---- Formspree AJAX states ----------------------------------------
+   The library adds data-fs-active to toggle visibility. Default styles
+   are switched off in the init call so these brand styles apply instead. */
+.fs-alert{ display:none; margin-bottom:18px; padding:14px 16px; border-radius:3px; font-size:.9rem; line-height:1.55; }
+.fs-alert[data-fs-active]{ display:block; }
+.fs-alert.ok{  background:var(--gold-tint); border:1px solid var(--gold); color:var(--ink); }
+.fs-alert.bad{ background:#FBEDE9; border:1px solid #D9A99D; color:#8C3323; }
+.fs-field-error{ display:none; margin-top:6px; font-size:.78rem; line-height:1.45; color:#A33A28; }
+.fs-field-error[data-fs-active]{ display:block; }
+.field input[aria-invalid="true"], .field textarea[aria-invalid="true"]{ border-color:#C4796B; background:#FDF6F4; }
+.btn[disabled]{ opacity:.55; cursor:not-allowed; }
 
 .crow{ display:flex; align-items:center; gap:14px; padding:15px 0; border-bottom:1px solid var(--line); text-decoration:none; color:var(--ink); }
 .crow:last-of-type{ border-bottom:none; }
@@ -496,13 +509,44 @@ footer .copy{ margin-top:22px; font-size:.7rem; color:#6E6759; }
       <div class="panel">
         <h3>Request a Quote</h3>
         <p class="panel-sub">Tell us a little about your home and we'll be in touch.</p>
-        <form action="https://formspree.io/f/xbdnwkpv" method="POST">
-          <div class="field"><label for="name">Your Name</label><input type="text" id="name" name="name" autocomplete="name" required></div>
-          <div class="field"><label for="phone">Phone Number</label><input type="tel" id="phone" name="phone" autocomplete="tel" required></div>
-          <div class="field"><label for="email">Email Address</label><input type="email" id="email" name="email" autocomplete="email"></div>
-          <div class="field"><label for="address">Service Address</label><input type="text" id="address" name="address" autocomplete="street-address"></div>
-          <div class="field"><label for="message">Tell Us About Your Home</label><textarea id="message" name="message" required></textarea></div>
-          <button type="submit" class="btn btn-primary">Send Request</button>
+
+        <!-- Shown by Formspree after a successful send; hidden until then. -->
+        <div class="fs-alert ok" data-fs-success>
+          Thank you &mdash; your request has been sent. We'll be in touch shortly.
+        </div>
+        <!-- Left empty on purpose: Formspree injects the server's error message. -->
+        <div class="fs-alert bad" data-fs-error></div>
+
+        <!-- action/method are the no-JavaScript fallback. If the Formspree
+             script is blocked or fails to load, the browser posts natively
+             to the same endpoint instead of the form silently doing nothing. -->
+        <form id="quote-form" action="https://formspree.io/f/xbdnwkpv" method="POST">
+          <div class="field">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" autocomplete="name" data-fs-field required>
+            <span class="fs-field-error" data-fs-error="name"></span>
+          </div>
+          <div class="field">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" autocomplete="tel" data-fs-field required>
+            <span class="fs-field-error" data-fs-error="phone"></span>
+          </div>
+          <div class="field">
+            <label for="email">Email Address <span class="opt">(optional)</span></label>
+            <input type="email" id="email" name="email" autocomplete="email" data-fs-field>
+            <span class="fs-field-error" data-fs-error="email"></span>
+          </div>
+          <div class="field">
+            <label for="address">Service Address <span class="opt">(optional)</span></label>
+            <input type="text" id="address" name="address" autocomplete="street-address" data-fs-field>
+            <span class="fs-field-error" data-fs-error="address"></span>
+          </div>
+          <div class="field">
+            <label for="message">Tell Us About Your Home</label>
+            <textarea id="message" name="message" data-fs-field required></textarea>
+            <span class="fs-field-error" data-fs-error="message"></span>
+          </div>
+          <button type="submit" class="btn btn-primary" data-fs-submit-btn>Send Request</button>
           <p class="form-note">Prefer to talk? Call or text <a href="tel:+12562572394" style="color:#A77426;font-weight:700;">(256) 257-2394</a></p>
         </form>
       </div>
@@ -567,5 +611,17 @@ footer .copy{ margin-top:22px; font-size:.7rem; color:#6E6759; }
     });
   });
 </script>
+
+<!-- ===================== FORMSPREE (quote form) =====================
+     Queue shim so initForm can be called before the deferred script loads. -->
+<script>
+  window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
+  formspree('initForm', {
+    formElement: '#quote-form',
+    formId: 'xbdnwkpv',
+    useDefaultStyles: false   /* brand styles in the stylesheet above handle this */
+  });
+</script>
+<script src="https://unpkg.com/@formspree/ajax@1" defer></script>
 </body>
 </html>
