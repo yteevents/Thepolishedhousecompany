@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="theme-color" content="#F6F3F0">
 <title>The Polished House | Weekly Home Maintenance Cleaning</title>
-<meta name="description" content="Dependable, detail-oriented weekly cleaning for Russellville, Littleville, Tuscumbia, Muscle Shoals and surrounding areas. Where every detail shines. Call (256) 257-2394.">
+<meta name="description" content="Weekly home cleaning from $400/month, plus lived-in and move-out deep cleans. Serving Tuscumbia, Russellville, Muscle Shoals and northwest Alabama. Free estimates — call (256) 257-2394.">
 <link rel="canonical" href="https://www.thepolishedhousecompany.com/">
 <link rel="icon" href="favicon.png" type="image/png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -16,14 +16,14 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:url" content="https://www.thepolishedhousecompany.com/">
 <meta property="og:title" content="The Polished House | Weekly Home Cleaning in Russellville & the Shoals">
-<meta property="og:description" content="Dependable, detail-oriented weekly cleaning for Russellville, Littleville, Tuscumbia, Muscle Shoals and surrounding areas. Where every detail shines.">
+<meta property="og:description" content="Weekly home cleaning from $400/month, plus lived-in and move-out deep cleans. Serving Tuscumbia, Russellville, Muscle Shoals and northwest Alabama. Free estimates.">
 <meta property="og:image" content="https://www.thepolishedhousecompany.com/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="The Polished House — weekly home cleaning, (256) 257-2394">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="The Polished House | Weekly Home Cleaning in Russellville & the Shoals">
-<meta name="twitter:description" content="Dependable, detail-oriented weekly cleaning for Russellville, Littleville, Tuscumbia, Muscle Shoals and surrounding areas.">
+<meta name="twitter:description" content="Weekly home cleaning from $400/month, plus lived-in and move-out deep cleans. Serving Tuscumbia, Russellville, Muscle Shoals and northwest Alabama.">
 <meta name="twitter:image" content="https://www.thepolishedhousecompany.com/og-image.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -130,7 +130,7 @@ header.topbar{
 .desktop-nav{ display:none; }
 
 .mobile-menu{ max-height:0; overflow:hidden; background:#fff; border-top:1px solid var(--line); transition:max-height .34s ease; }
-.mobile-menu.open{ max-height:560px; }
+.mobile-menu.open{ max-height:620px; }
 .mobile-menu ul{ list-style:none; padding:6px 20px 18px; }
 .mobile-menu a{
   display:block; padding:14px 2px; text-decoration:none; color:var(--ink);
@@ -170,7 +170,8 @@ header.topbar{
 .about-card p{ color:var(--ink-soft); font-size:.94rem; line-height:1.65; }
 
 /* ============================ SERVICES ============================ */
-#services{ background:var(--cream-deep); }
+#services{ background:var(--cream); }
+#included{ background:var(--cream-deep); }
 .band{
   display:block; width:max-content; max-width:100%; margin:0 auto 26px; padding:9px 24px;
   background:var(--black); color:var(--gold); border-radius:2px;
@@ -206,8 +207,67 @@ header.topbar{
 .steps h3{ color:var(--black); margin-bottom:5px; }
 .steps p{ color:var(--ink-soft); font-size:.93rem; line-height:1.65; }
 
+/* ---- Pricing tiers ---- */
+.tiers{ display:grid; grid-template-columns:1fr; gap:16px; }
+.tier{
+  background:#fff; border:1px solid var(--line); border-radius:5px; padding:26px 22px;
+  display:flex; flex-direction:column;
+}
+.tier.featured{ border:1.5px solid var(--gold); box-shadow:0 6px 22px rgba(192,143,62,.13); }
+.tier-kicker{
+  color:var(--gold-deep); font-size:.63rem; letter-spacing:.2em; text-transform:uppercase;
+  font-weight:700; margin-bottom:8px;
+}
+.tier h3{ color:var(--black); margin-bottom:12px; }
+.tier-price{ display:flex; align-items:baseline; flex-wrap:wrap; gap:6px; margin-bottom:10px; }
+.tier-price .from{ font-size:.7rem; letter-spacing:.16em; text-transform:uppercase; color:var(--ink-soft); font-weight:700; width:100%; }
+.tier-price .amt{ font-family:'Playfair Display', Didot, Georgia, serif; font-size:2.6rem; line-height:1; color:var(--gold); }
+.tier-price .quote-amt{ font-size:1.5rem; }
+.tier-price .per{ font-size:.85rem; color:var(--ink-soft); font-weight:700; }
+.tier-note{ color:var(--ink); font-size:.88rem; line-height:1.6; margin-bottom:16px; padding-bottom:16px; border-bottom:1px solid var(--line); }
+.tier ul{ list-style:none; margin-bottom:16px; }
+.tier li{ position:relative; padding-left:19px; margin-bottom:7px; font-size:.9rem; line-height:1.55; color:var(--ink-soft); }
+.tier li::before{ content:'✦'; position:absolute; left:0; top:.35em; color:var(--gold); font-size:.62rem; }
+.tier-foot{ font-size:.78rem; line-height:1.55; color:var(--ink-soft); font-style:italic; margin-top:auto; margin-bottom:18px; }
+.tier .btn{ width:100%; }
+
+.addons, .fit{
+  margin-top:18px; background:var(--gold-tint); border:1px solid var(--line);
+  border-radius:5px; padding:22px;
+}
+.addons h3, .fit h3{ color:var(--black); font-size:1.05rem; margin-bottom:8px; }
+.addons .by-quote{ color:var(--gold-deep); font-size:.66rem; letter-spacing:.18em; text-transform:uppercase; font-weight:700; }
+.addons p, .fit p{ color:var(--ink-soft); font-size:.9rem; line-height:1.7; }
+
+.proof{ margin-top:26px; }
+.proof h3{ text-align:center; color:var(--black); font-size:1.05rem; margin-bottom:16px; }
+.proof figure{ margin-bottom:14px; border:1px solid var(--line); border-radius:4px; overflow:hidden; background:#fff; }
+.proof img{ width:100%; height:auto; }
+
+/* ---- Testimonials ---- */
+#reviews{ background:var(--cream); }
+.quote-grid{ display:grid; grid-template-columns:1fr; gap:14px; }
+.quote{
+  background:#fff; border:1px solid var(--line); border-radius:4px;
+  padding:34px 22px 22px; position:relative;
+}
+.quote::before{
+  content:'\201C'; position:absolute; top:2px; left:18px;
+  font-family:'Playfair Display', Didot, Georgia, serif; font-size:4rem; line-height:1;
+  color:var(--gold-light);
+}
+.quote blockquote{ color:var(--ink); font-size:.97rem; line-height:1.72; font-style:italic; }
+.quote figcaption{
+  margin-top:14px; padding-top:12px; border-top:1px solid var(--line);
+  color:var(--gold-deep); font-size:.68rem; letter-spacing:.19em; text-transform:uppercase; font-weight:700;
+}
+.quote-source{
+  text-align:center; margin-top:20px; color:var(--ink-soft);
+  font-size:.72rem; letter-spacing:.14em; text-transform:uppercase;
+}
+
 /* ---- FAQ ---- */
-#faq{ background:var(--cream); }
+#faq{ background:var(--cream-deep); }
 .faq-list{ display:grid; gap:10px; }
 .faq{ background:#fff; border:1px solid var(--line); border-radius:4px; }
 .faq summary{
@@ -305,7 +365,9 @@ footer .script{ display:block; color:var(--gold); font-size:1.65rem; margin-bott
 footer .areas{ font-size:.66rem; letter-spacing:.16em; text-transform:uppercase; color:var(--gold); line-height:2; }
 footer .fcontact{ margin:6px 0 0; font-size:.9rem; }
 footer .fcontact a{ color:var(--cream); text-decoration:none; }
-footer .copy{ margin-top:22px; font-size:.7rem; color:#6E6759; }
+footer .legal-links{ margin-top:20px; font-size:.72rem; letter-spacing:.1em; }
+footer .legal-links a{ color:var(--gold); text-decoration:none; }
+footer .copy{ margin-top:14px; font-size:.7rem; color:#6E6759; }
 
 /* ============================ STICKY MOBILE BAR ============================ */
 .mobile-bar{
@@ -332,6 +394,9 @@ footer .copy{ margin-top:22px; font-size:.7rem; color:#6E6759; }
   .about-grid{ grid-template-columns:1fr 1fr; gap:16px; }
   .why-grid{ grid-template-columns:repeat(3,1fr); gap:13px; }
   .res-grid{ grid-template-columns:repeat(3,1fr); }
+  .quote-grid{ grid-template-columns:1fr 1fr; }
+  .proof{ display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+  .proof h3{ grid-column:1 / -1; }
   .res{ flex-direction:column; align-items:flex-start; text-align:left; }
   .res .go{ margin-left:0; }
   .hero-ctas{ flex-direction:row; max-width:470px; }
@@ -364,6 +429,8 @@ footer .copy{ margin-top:22px; font-size:.7rem; color:#6E6759; }
   .why-grid{ grid-template-columns:repeat(6,1fr); }
   .contact-cols{ display:grid; grid-template-columns:1.15fr .85fr; gap:22px; align-items:start; }
   .steps{ grid-template-columns:repeat(3,1fr); gap:18px; }
+  .tiers{ grid-template-columns:repeat(3,1fr); gap:20px; align-items:stretch; }
+  .addons, .fit{ margin-top:22px; }
   .faq-list{ grid-template-columns:1fr 1fr; gap:12px; align-items:start; }
 
   /* Desktop: show every service card open, no accordion behaviour */
@@ -383,10 +450,10 @@ footer .copy{ margin-top:22px; font-size:.7rem; color:#6E6759; }
     <a href="#home"><img src="logo-horizontal-transparent.png" alt="The Polished House — Where Every Detail Shines" class="topbar-logo"></a>
     <ul class="desktop-nav">
       <li><a href="#about">About</a></li>
-      <li><a href="#services">Services</a></li>
+      <li><a href="#services">Services &amp; Pricing</a></li>
       <li><a href="#how">How It Works</a></li>
+      <li><a href="#reviews">Reviews</a></li>
       <li><a href="#faq">FAQ</a></li>
-      <li><a href="#resources">Resources</a></li>
       <li><a href="#contact">Contact</a></li>
       <li><a href="tel:+12562572394" class="btn btn-primary">
         <svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
@@ -399,9 +466,11 @@ footer .copy{ margin-top:22px; font-size:.7rem; color:#6E6759; }
   <nav class="mobile-menu" id="mobileMenu">
     <ul>
       <li><a href="#about">About</a></li>
-      <li><a href="#services">Services</a></li>
+      <li><a href="#services">Services &amp; Pricing</a></li>
+      <li><a href="#included">What's Included</a></li>
       <li><a href="#how">How It Works</a></li>
       <li><a href="#why">Why Choose Us</a></li>
+      <li><a href="#reviews">Reviews</a></li>
       <li><a href="#faq">FAQ</a></li>
       <li><a href="#resources">Resources</a></li>
       <li><a href="#contact">Request a Quote</a></li>
@@ -422,7 +491,7 @@ footer .copy{ margin-top:22px; font-size:.7rem; color:#6E6759; }
       (256) 257-2394</a>
     <a href="#contact" class="btn btn-ghost">Request a Quote</a>
   </div>
-  <div class="trust"><span>2&ndash;3 Hour Visits</span><span>Rotating Detail Cleaning</span><span>Locally Owned</span></div>
+  <div class="trust"><span>Weekly from $400/month</span><span>Free Estimates</span><span>Locally Owned</span></div>
 </section>
 
 <!-- ======================= ABOUT ======================= -->
@@ -466,18 +535,100 @@ footer .copy{ margin-top:22px; font-size:.7rem; color:#6E6759; }
         <div class="medallion"><svg viewBox="0 0 24 24"><path d="M9 3h4v4H9z"/><path d="M11 7v3"/><path d="M7.5 10h7l1 11h-9z"/><path d="M14 3.5h2.5M16.2 6h2"/></svg></div>
         <div>
           <span class="kicker">Designed for upkeep</span>
-          <h3>Maintenance, Not Deep Cleaning</h3>
-          <p>We focus on maintaining the cleanliness of your home, not performing deep cleaning or heavy restoration.</p>
+          <h3>Upkeep Weekly, Deep Cleans Separately</h3>
+          <p>Weekly visits keep an already-maintained home that way. When a home needs a full reset first &mdash; or you're moving in or out &mdash; we offer deep cleans as their own service.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ======================= SERVICES ======================= -->
+<!-- ======================= SERVICES & PRICING ======================= -->
 <section id="services">
   <div class="container">
-    <p class="eyebrow">What's Included</p>
+    <p class="eyebrow">Services &amp; Pricing</p>
+    <h2 class="heading">Three Ways We Can <span class="gold">Help</span></h2>
+    <div class="rule"><i>✦</i></div>
+    <p class="lead" style="margin-bottom:32px;">Choose dependable weekly care, or a detailed top-to-bottom clean. Every home is quoted on its size, condition, and priorities &mdash; and estimates are free.</p>
+
+    <div class="tiers">
+      <article class="tier featured">
+        <p class="tier-kicker">Most Popular</p>
+        <h3>Weekly Maintenance</h3>
+        <p class="tier-price"><span class="from">Starting at</span><span class="amt">$400</span><span class="per">/month</span></p>
+        <p class="tier-note">One reserved cleaning day every week. Five-week months included at no extra charge.</p>
+        <ul>
+          <li>Four weekly visits, 2&ndash;3 hours each</li>
+          <li>Fifth weekly visit included when applicable</li>
+          <li>Kitchen and bathroom maintenance</li>
+          <li>Dusting, mirrors and light tidying</li>
+          <li>Vacuuming, sweeping and mopping</li>
+          <li>Beds, routine dishes and trash</li>
+          <li>Light laundry with your detergent</li>
+          <li>Rotating details as time allows</li>
+        </ul>
+        <p class="tier-foot">Time-based care for homes already kept at a maintainable level.</p>
+        <a href="#contact" class="btn btn-primary">Request a Quote</a>
+      </article>
+
+      <article class="tier">
+        <p class="tier-kicker">One-Time</p>
+        <h3>Lived-In Deep Clean</h3>
+        <p class="tier-price"><span class="amt quote-amt">Custom Quote</span></p>
+        <p class="tier-note">A detailed reset for a home you're living in.</p>
+        <ul>
+          <li>Reachable high dust and cobweb removal</li>
+          <li>Detailed kitchen and bathrooms</li>
+          <li>Ceiling fans and reachable light fixtures</li>
+          <li>Doors, frames, trim and baseboards</li>
+          <li>Furniture, decor and accessible surfaces</li>
+          <li>Floor edges, corners and hard-to-reach areas</li>
+          <li>Final top-to-bottom inspection</li>
+        </ul>
+        <p class="tier-foot">Detailed care for an occupied home. Select interior items are quoted separately.</p>
+        <a href="#contact" class="btn btn-ghost">Request a Quote</a>
+      </article>
+
+      <article class="tier">
+        <p class="tier-kicker">One-Time</p>
+        <h3>Move-In / Move-Out</h3>
+        <p class="tier-price"><span class="amt quote-amt">Custom Quote</span></p>
+        <p class="tier-note">Complete interior cleaning for an empty home.</p>
+        <ul>
+          <li>Inside and outside cabinets and drawers</li>
+          <li>Shelving, closets and storage interiors</li>
+          <li>Appliance interiors and exteriors</li>
+          <li>Interior windows, tracks and sills</li>
+          <li>Doors, trim, baseboards, fixtures and vents</li>
+          <li>Whole-home completion inspection</li>
+        </ul>
+        <p class="tier-foot">Exterior surfaces, exterior-facing glass, and plastic or thin mini-blinds are excluded.</p>
+        <a href="#contact" class="btn btn-ghost">Request a Quote</a>
+      </article>
+    </div>
+
+    <div class="addons">
+      <h3>Deep Clean Add-Ons <span class="by-quote">by quote</span></h3>
+      <p>Fridge or oven interiors &nbsp;·&nbsp; Interior cabinets, drawers or closets &nbsp;·&nbsp; Sturdy wooden blinds &nbsp;·&nbsp; Full window cleaning and tracks &nbsp;·&nbsp; Wall washing</p>
+    </div>
+
+    <div class="fit">
+      <h3>Is weekly service a good fit?</h3>
+      <p>The starting tier is built for well-maintained, single-level homes of up to three bedrooms and two bathrooms, for clients who want a reserved weekly cleaning day. Some homes benefit from an initial deep clean first. Larger homes, multi-level homes, and homes needing more weekly time receive a personalised quote.</p>
+    </div>
+
+    <div class="proof">
+      <h3>A deep clean, before and after</h3>
+      <figure><img src="img/deepclean-1.jpg" alt="Before and after a deep clean: a closet floor cleared and the room reset" width="952" height="804" loading="lazy"></figure>
+      <figure><img src="img/deepclean-2.jpg" alt="Before and after a deep clean: a child's bedroom floor cleared and vacuumed" width="953" height="804" loading="lazy"></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= WHAT'S INCLUDED WEEKLY ======================= -->
+<section id="included">
+  <div class="container">
+    <p class="eyebrow">Weekly Service In Detail</p>
     <h2 class="heading">Every Visit, <span class="gold">Every Detail</span></h2>
     <div class="rule"><i>✦</i></div>
     <span class="band">The basics we handle each week</span>
@@ -610,6 +761,43 @@ footer .copy{ margin-top:22px; font-size:.7rem; color:#6E6759; }
   </div>
 </section>
 
+<!-- ======================= TESTIMONIALS =======================
+     Verbatim quotes from public Facebook recommendations. Deliberately NOT
+     marked up with Review/AggregateRating schema: Google treats reviews a
+     business republishes about itself as self-serving and ineligible, and
+     aggregating third-party reviews breaches their guidelines. -->
+<section id="reviews">
+  <div class="container">
+    <p class="eyebrow">In Their Words</p>
+    <h2 class="heading">What Clients <span class="gold">Say</span></h2>
+    <div class="rule"><i>✦</i></div>
+
+    <div class="quote-grid">
+      <figure class="quote">
+        <blockquote>They did a very thorough job while being sure not to move things so much that you wouldn't find it. I couldn't be happier with the results.</blockquote>
+        <figcaption>Dakota T.</figcaption>
+      </figure>
+
+      <figure class="quote">
+        <blockquote>Honest, dependable, reliable. Goes the extra mile to attain customer satisfaction. I would recommend to anyone looking for a house keeper.</blockquote>
+        <figcaption>Tommy V.</figcaption>
+      </figure>
+
+      <figure class="quote">
+        <blockquote>Linda does a fantastic job taking care of my home. So glad I found her! She goes above and beyond of what's needed without any hesitation. She's great. No regrets here!</blockquote>
+        <figcaption>Carol M.</figcaption>
+      </figure>
+
+      <figure class="quote">
+        <blockquote>Lynn did an awesome job on my house. She is very good at what she does. I will continue to use Lynn, where I know my needs will be met.</blockquote>
+        <figcaption>Amber H.</figcaption>
+      </figure>
+    </div>
+
+    <p class="quote-source">From client recommendations on Facebook</p>
+  </div>
+</section>
+
 <!-- ======================= FAQ ======================= -->
 <section id="faq">
   <div class="container">
@@ -640,7 +828,17 @@ footer .copy{ margin-top:22px; font-size:.7rem; color:#6E6759; }
 
       <details class="faq">
         <summary>How long does a visit take?</summary>
-        <p>Most visits run about two to three hours. The goal is to work efficiently within that window to keep your home consistently maintained rather than to spend a full day on a reset.</p>
+        <p>Most visits run about two to three hours. Time and scope depend on the size and condition of the home &mdash; a well-maintained home may be fully completed each visit, while others receive rotating focus areas.</p>
+      </details>
+
+      <details class="faq">
+        <summary>How much does weekly cleaning cost?</summary>
+        <p>Weekly maintenance starts at $400 per month, which covers four weekly visits of two to three hours on a reserved cleaning day, with five-week months included at no extra charge. The starting tier suits well-maintained, single-level homes of up to three bedrooms and two bathrooms. Larger homes, multi-level homes, and homes needing more weekly time receive a personalised quote. Deep cleans are quoted individually, and estimates are free.</p>
+      </details>
+
+      <details class="faq">
+        <summary>Do you offer deep cleaning?</summary>
+        <p>Yes, as a separate service from weekly maintenance. A lived-in deep clean is a detailed reset for a home you're living in, covering high dust and cobwebs, detailed kitchen and bathrooms, ceiling fans and light fixtures, doors, frames, trim and baseboards, and hard-to-reach floor areas. A move-in or move-out deep clean covers a complete empty home including inside cabinets and drawers, closets, appliance interiors, and interior windows and tracks. Both are quoted individually.</p>
       </details>
 
       <details class="faq">
@@ -761,12 +959,16 @@ footer .copy{ margin-top:22px; font-size:.7rem; color:#6E6759; }
           <div class="medallion"><svg viewBox="0 0 24 24"><rect x="2.5" y="4.5" width="19" height="15" rx="2"/><path d="m3 6.5 9 6 9-6"/></svg></div>
           <div><div class="lbl">Email</div><div class="val" style="font-size:.88rem;">ThePolishedHouseCompany@gmail.com</div></div>
         </a>
+        <a href="https://www.facebook.com/HappyHelpersClean" class="crow" target="_blank" rel="noopener">
+          <div class="medallion"><svg viewBox="0 0 24 24"><path d="M14 8.5V6.8c0-.8.2-1.3 1.4-1.3H17V2.6a19 19 0 0 0-2.3-.1c-2.4 0-4 1.4-4 4.1v1.9H8V12h2.7v9.4h3.2V12h2.7l.4-3.5z"/></svg></div>
+          <div><div class="lbl">Facebook</div><div class="val" style="font-size:.9rem;">9 recommendations &mdash; 100% recommend</div></div>
+        </a>
         <div class="crow">
           <div class="medallion"><svg viewBox="0 0 24 24"><path d="M20 10.5c0 6-8 11.5-8 11.5s-8-5.5-8-11.5a8 8 0 0 1 16 0z"/><circle cx="12" cy="10.3" r="2.7"/></svg></div>
           <div>
             <div class="lbl">Service Areas</div>
             <div class="chips">
-              <span class="chip">Russellville</span><span class="chip">Littleville</span><span class="chip">Tuscumbia</span><span class="chip">Muscle Shoals</span><span class="chip">Surrounding Areas</span>
+              <span class="chip">Tuscumbia</span><span class="chip">Russellville</span><span class="chip">Muscle Shoals</span><span class="chip">Littleville</span><span class="chip">Phil Campbell</span><span class="chip">Leighton</span><span class="chip">Cherokee</span><span class="chip">Barton</span>
             </div>
           </div>
         </div>
@@ -780,10 +982,12 @@ footer .copy{ margin-top:22px; font-size:.7rem; color:#6E6759; }
   <img src="logo-circle-transparent.png" alt="" class="footer-logo" width="900" height="900">
   <span class="script">Where every detail shines</span>
   <div class="fdiv"><i>✦</i></div>
-  <p class="areas">Russellville &nbsp;·&nbsp; Littleville &nbsp;·&nbsp; Tuscumbia<br>Muscle Shoals &nbsp;·&nbsp; Surrounding Areas</p>
+  <p class="areas">Tuscumbia &nbsp;·&nbsp; Russellville &nbsp;·&nbsp; Muscle Shoals &nbsp;·&nbsp; Littleville<br>Phil Campbell &nbsp;·&nbsp; Leighton &nbsp;·&nbsp; Cherokee &nbsp;·&nbsp; Barton</p>
   <div class="fdiv"><i>✦</i></div>
   <p class="fcontact"><a href="tel:+12562572394">(256) 257-2394</a></p>
   <p class="fcontact"><a href="mailto:ThePolishedHouseCompany@gmail.com">ThePolishedHouseCompany@gmail.com</a></p>
+  <p class="fcontact"><a href="https://www.facebook.com/HappyHelpersClean" target="_blank" rel="noopener">Find us on Facebook &mdash; 9 recommendations</a></p>
+  <p class="legal-links"><a href="terms.html">Service Terms</a> &nbsp;·&nbsp; <a href="privacy.html">Privacy Policy</a></p>
   <p class="copy">&copy; 2026 The Polished House Company. All rights reserved.</p>
 </footer>
 
@@ -861,40 +1065,80 @@ footer .copy{ margin-top:22px; font-size:.7rem; color:#6E6759; }
       "name": "The Polished House",
       "alternateName": "The Polished House Company",
       "slogan": "Where every detail shines",
-      "description": "Weekly home maintenance cleaning for Russellville, Littleville, Tuscumbia, Muscle Shoals and surrounding areas of northwest Alabama. Recurring, detail-oriented cleaning on a reserved day, with rotating detail work and flat monthly pricing.",
+      "description": "Residential cleaning in northwest Alabama. Weekly maintenance from $400 per month on a reserved cleaning day with flat monthly pricing and rotating detail work, plus lived-in and move-in/move-out deep cleans quoted individually. Free estimates. Serving Tuscumbia, Russellville, Muscle Shoals, Littleville, Phil Campbell, Leighton, Cherokee and Barton.",
       "url": "https://www.thepolishedhousecompany.com/",
       "telephone": "+1-256-257-2394",
       "email": "ThePolishedHouseCompany@gmail.com",
       "image": "https://www.thepolishedhousecompany.com/og-image.png",
       "logo": "https://www.thepolishedhousecompany.com/logo-circle-transparent.png",
+      "priceRange": "$$",
+      "sameAs": [ "https://www.facebook.com/HappyHelpersClean" ],
       "address": {
         "@type": "PostalAddress",
-        "addressLocality": "Russellville",
+        "addressLocality": "Tuscumbia",
         "addressRegion": "AL",
         "addressCountry": "US"
       },
       "areaServed": [
         {
           "@type": "GeoCircle",
-          "geoMidpoint": { "@type": "GeoCoordinates", "latitude": 34.5103, "longitude": -87.7282 },
+          "geoMidpoint": { "@type": "GeoCoordinates", "latitude": 34.5900, "longitude": -87.7500 },
           "geoRadius": "40000"
         },
-        { "@type": "City", "name": "Russellville", "address": { "@type": "PostalAddress", "addressRegion": "AL", "addressCountry": "US" } },
-        { "@type": "City", "name": "Littleville",  "address": { "@type": "PostalAddress", "addressRegion": "AL", "addressCountry": "US" } },
-        { "@type": "City", "name": "Tuscumbia",    "address": { "@type": "PostalAddress", "addressRegion": "AL", "addressCountry": "US" } },
-        { "@type": "City", "name": "Muscle Shoals","address": { "@type": "PostalAddress", "addressRegion": "AL", "addressCountry": "US" } }
+        { "@type": "City", "name": "Tuscumbia",     "address": { "@type": "PostalAddress", "addressRegion": "AL", "addressCountry": "US" } },
+        { "@type": "City", "name": "Russellville",  "address": { "@type": "PostalAddress", "addressRegion": "AL", "addressCountry": "US" } },
+        { "@type": "City", "name": "Muscle Shoals", "address": { "@type": "PostalAddress", "addressRegion": "AL", "addressCountry": "US" } },
+        { "@type": "City", "name": "Littleville",   "address": { "@type": "PostalAddress", "addressRegion": "AL", "addressCountry": "US" } },
+        { "@type": "City", "name": "Phil Campbell", "address": { "@type": "PostalAddress", "addressRegion": "AL", "addressCountry": "US" } },
+        { "@type": "City", "name": "Leighton",      "address": { "@type": "PostalAddress", "addressRegion": "AL", "addressCountry": "US" } },
+        { "@type": "City", "name": "Cherokee",      "address": { "@type": "PostalAddress", "addressRegion": "AL", "addressCountry": "US" } },
+        { "@type": "City", "name": "Barton",        "address": { "@type": "PostalAddress", "addressRegion": "AL", "addressCountry": "US" } }
       ],
       "paymentAccepted": "Square, PayPal, Cash",
       "currenciesAccepted": "USD",
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
-        "name": "Weekly Maintenance Cleaning",
+        "name": "Residential Cleaning Services",
         "itemListElement": [
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Kitchen cleaning",        "description": "Countertops and backsplash, sink and fixtures, cabinet fronts, appliance exteriors, trash, sweep and mop." } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Bathroom cleaning",       "description": "Countertops sanitised, sink and fixtures polished, mirrors, toilet inside and out, cabinets, sweep and mop." } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Bedroom cleaning",        "description": "Beds made, surfaces and décor dusted, nightstands and dressers wiped, floors vacuumed, trash emptied." } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Living area cleaning",    "description": "Surfaces and décor dusted, tables and shelves wiped, pillows straightened, carpets vacuumed, hard floors swept." } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Rotating detail cleaning","description": "Baseboards, ceiling fans, interior windows, vents, light fixtures and cabinet fronts, rotated across visits." } }
+          {
+            "@type": "Offer",
+            "name": "Weekly Maintenance",
+            "priceSpecification": {
+              "@type": "UnitPriceSpecification",
+              "price": "400.00",
+              "priceCurrency": "USD",
+              "minPrice": "400.00",
+              "unitCode": "MON",
+              "billingIncrement": 1,
+              "description": "Starting price per month; every home quoted on size, condition and priorities."
+            },
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Weekly maintenance cleaning",
+              "serviceType": "Recurring residential cleaning",
+              "description": "Four weekly visits of two to three hours on a reserved cleaning day, covering kitchen and bathroom maintenance, dusting, mirrors and light tidying, vacuuming, sweeping and mopping, beds, routine dishes and trash, and light laundry, with rotating detail work as time allows. Five-week months are included at no extra charge."
+            }
+          },
+          {
+            "@type": "Offer",
+            "name": "Lived-In Deep Clean",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Lived-in deep clean",
+              "serviceType": "One-time deep cleaning",
+              "description": "A detailed top-to-bottom clean for an occupied home: reachable high dust and cobweb removal, detailed kitchen and bathrooms, ceiling fans and reachable light fixtures, doors, frames, trim and baseboards, furniture, decor and accessible surfaces, floor edges, corners and hard-to-reach areas, and a final inspection. Quoted individually."
+            }
+          },
+          {
+            "@type": "Offer",
+            "name": "Move-In / Move-Out Deep Clean",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Move-in and move-out deep clean",
+              "serviceType": "One-time deep cleaning",
+              "description": "Complete interior cleaning for an empty home: inside and outside of cabinets and drawers, shelving, closets and storage interiors, appliance interiors and exteriors, interior windows, tracks and sills, doors, trim, baseboards, fixtures and vents, and a whole-home completion inspection. Quoted individually."
+            }
+          }
         ]
       }
     },
@@ -914,7 +1158,9 @@ footer .copy{ margin-top:22px; font-size:.7rem; color:#6E6759; }
         { "@type": "Question", "name": "Do I need to be home during the cleaning?", "acceptedAnswer": { "@type": "Answer", "text": "No. Most clients provide a key, lockbox, garage code, or door code, along with alarm instructions and a note of any doors or areas that shouldn't be entered. Those access details are kept private and used only to complete your scheduled service." } },
         { "@type": "Question", "name": "Do you bring your own cleaning supplies?", "acceptedAnswer": { "@type": "Answer", "text": "We bring all cleaning products, microfiber cloths, scrub brushes and pads, dusters, detail tools, and standard disposable supplies. Each client provides their own vacuum, broom, mop, and toilet brush, which we use only in that home — this prevents cross-contamination between houses. Just keep them accessible and in working order." } },
         { "@type": "Question", "name": "Is this a deep clean?", "acceptedAnswer": { "@type": "Answer", "text": "No. This is a weekly maintenance service designed for upkeep, not deep cleaning or heavy restoration. Every visit completes the standard checklist, and detail tasks rotate over time so areas like baseboards, ceiling fans, interior windows, and vents each get proper attention without extending your regular visit." } },
-        { "@type": "Question", "name": "How long does a visit take?", "acceptedAnswer": { "@type": "Answer", "text": "Most visits run about two to three hours. The goal is to work efficiently within that window to keep your home consistently maintained rather than to spend a full day on a reset." } },
+        { "@type": "Question", "name": "How long does a visit take?", "acceptedAnswer": { "@type": "Answer", "text": "Most visits run about two to three hours. Time and scope depend on the size and condition of the home — a well-maintained home may be fully completed each visit, while others receive rotating focus areas." } },
+        { "@type": "Question", "name": "How much does weekly cleaning cost?", "acceptedAnswer": { "@type": "Answer", "text": "Weekly maintenance starts at $400 per month, which covers four weekly visits of two to three hours on a reserved cleaning day, with five-week months included at no extra charge. The starting tier suits well-maintained, single-level homes of up to three bedrooms and two bathrooms. Larger homes, multi-level homes, and homes needing more weekly time receive a personalised quote. Deep cleans are quoted individually, and estimates are free." } },
+        { "@type": "Question", "name": "Do you offer deep cleaning?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, as a separate service from weekly maintenance. A lived-in deep clean is a detailed reset for a home you're living in, covering high dust and cobwebs, detailed kitchen and bathrooms, ceiling fans and light fixtures, doors, frames, trim and baseboards, and hard-to-reach floor areas. A move-in or move-out deep clean covers a complete empty home including inside cabinets and drawers, closets, appliance interiors, and interior windows and tracks. Both are quoted individually." } },
         { "@type": "Question", "name": "How does billing work?", "acceptedAnswer": { "@type": "Answer", "text": "Invoices are sent monthly through Square or PayPal to your preferred email address or phone number, and payment is due on the 1st of the month. We accept Square invoice, PayPal, and cash. Your monthly price is a flat rate that reserves your recurring appointment, so a month with five scheduled visits costs no more than one with four." } },
         { "@type": "Question", "name": "Can I pause service while I'm away?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Recurring service can be paused for up to two weeks per calendar year with at least 14 days' notice, and your reserved cleaning day stays yours. Longer holds may mean the reserved appointment can't be kept open." } },
         { "@type": "Question", "name": "Do I need to tidy up before you arrive?", "acceptedAnswer": { "@type": "Answer", "text": "A quick pick-up helps. Excessive clutter reduces how much cleaning we can complete in the scheduled time, so clear paths and picked-up toys, clothing, and loose items mean more of your visit goes to actual cleaning. Running water and electricity also need to be available during service." } },
