@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Polished House - Weekly Cleaning Service</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --gold: #D4AF37;
+            --dark-gold: #B8960F;
+            --black: #1a1a1a;
+            --cream: #F5F1E8;
+            --light-gray: #E8E4D9;
+            --text-dark: #2a2a2a;
+        }
+
+        body {
+            font-family: 'Georgia', 'Garamond', serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--cream);
+        }
+
+        /* Navigation */
+        nav {
+            background-color: var(--black);
+            padding: 1.5rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: var(--gold);
+            font-size: 1.8rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--cream);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+            border-bottom: 2px solid transparent;
+            padding-bottom: 4px;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+            border-bottom-color: var(--gold);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(26, 26, 26, 0.85), rgba(26, 26, 26, 0.85)),
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><defs><pattern id="marble" patternUnits="userSpaceOnUse" width="200" height="200"><rect fill="%23F5F1E8" width="200" height="200"/><path fill="%23E8E4D9" d="M0,0 Q50,50 100,0 T200,0 L200,200 Q150,150 100,200 T0,200 Z" opacity="0.5"/></pattern></defs><rect width="1200" height="600" fill="url(%23marble)"/></svg>');
+            background-size: cover;
+            background-position: center;
+            color: var(--cream);
+            text-align: center;
+            padding: 120px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '✦';
+            position: absolute;
+            top: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 2rem;
+            color: var(--gold);
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            font-weight: normal;
+            letter-spacing: 4px;
+        }
+
+        .hero-content .tagline {
+            font-size: 1.3rem;
+            color: var(--gold);
+            font-style: italic;
+            margin-bottom: 2rem;
+            letter-spacing: 2px;
+        }
+
+        .hero-content p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            line-height: 1.8;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--gold);
+            color: var(--black);
+            padding: 14px 40px;
+            text-decoration: none;
+            font-weight: bold;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            border: 2px solid var(--gold);
+            cursor: pointer;
+            font-family: 'Georgia', serif;
+            font-size: 1rem;
+        }
+
+        .cta-button:hover {
+            background-color: transparent;
+            color: var(--gold);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Section Styling */
+        section {
+            padding: 80px 2rem;
+        }
+
+        section h2 {
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            letter-spacing: 2px;
+        }
+
+        section .subtitle {
+            text-align: center;
+            color: var(--gold);
+            font-style: italic;
+            font-size: 1.4rem;
+            margin-bottom: 3rem;
+            letter-spacing: 1px;
+        }
+
+        .divider {
+            width: 60px;
+            height: 2px;
+            background-color: var(--gold);
+            margin: 2rem auto;
+        }
+
+        /* About Section */
+        #about {
+            background-color: white;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-top: 3rem;
+        }
+
+        .about-text h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--black);
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        .about-icon {
+            font-size: 4rem;
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+
+        /* Services Section */
+        #services {
+            background-color: var(--cream);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background-color: white;
+            border: 2px solid var(--light-gray);
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .service-card:hover {
+            border-color: var(--gold);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.15);
+            transform: translateY(-5px);
+        }
+
+        .service-card::before {
+            content: '✦';
+            display: block;
+            color: var(--gold);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--black);
+            letter-spacing: 1px;
+        }
+
+        .service-card p {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: var(--text-dark);
+        }
+
+        /* What's Included Section */
+        #included {
+            background-color: white;
+        }
+
+        .included-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .included-item {
+            padding: 2rem;
+            border-left: 4px solid var(--gold);
+            background-color: var(--cream);
+        }
+
+        .included-item h3 {
+            color: var(--gold);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            letter-spacing: 1px;
+        }
+
+        .included-item ul {
+            list-style: none;
+        }
+
+        .included-item li {
+            padding: 0.4rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            font-size: 0.95rem;
+        }
+
+        .included-item li:before {
+            content: '✦';
+            position: absolute;
+            left: 0;
+            color: var(--gold);
+        }
+
+        /* Why Choose Us Section */
+        #why {
+            background: linear-gradient(135deg, var(--black) 0%, #2a2a2a 100%);
+            color: var(--cream);
+            text-align: center;
+        }
+
+        #why h2 {
+            color: var(--cream);
+        }
+
+        #why .subtitle {
+            color: var(--gold);
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .why-card {
+            padding: 2rem;
+            background-color: rgba(212, 175, 55, 0.1);
+            border: 1px solid var(--gold);
+        }
+
+        .why-card h3 {
+            color: var(--gold);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            letter-spacing: 1px;
+        }
+
+        /* Contact Section */
+        #contact {
+            background-color: var(--cream);
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 3rem;
+            align-items: start;
+        }
+
+        .contact-info {
+            background-color: white;
+            padding: 2.5rem;
+            border: 2px solid var(--light-gray);
+        }
+
+        .contact-info h3 {
+            color: var(--gold);
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            letter-spacing: 1px;
+        }
+
+        .contact-item {
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .contact-item .icon {
+            color: var(--gold);
+            font-size: 1.3rem;
+            flex-shrink: 0;
+            margin-top: 0.2rem;
+        }
+
+        .contact-item p {
+            margin: 0;
+        }
+
+        .contact-item a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+
+        .contact-item a:hover {
+            text-decoration: underline;
+        }
+
+        .contact-form {
+            background-color: white;
+            padding: 2.5rem;
+            border: 2px solid var(--light-gray);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            color: var(--black);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid var(--light-gray);
+            font-family: 'Georgia', serif;
+            font-size: 0.95rem;
+            background-color: #fafaf8;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--gold);
+            background-color: white;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--black);
+            color: var(--cream);
+            text-align: center;
+            padding: 3rem 2rem;
+            border-top: 2px solid var(--gold);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-areas {
+            color: var(--gold);
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            margin: 1rem 0;
+        }
+
+        .footer-divider {
+            width: 100px;
+            height: 1px;
+            background-color: var(--gold);
+            margin: 1.5rem auto;
+        }
+
+        .copyright {
+            font-size: 0.85rem;
+            color: var(--light-gray);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.85rem;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            section h2 {
+                font-size: 2rem;
+            }
+
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .services-grid,
+            .why-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav {
+                padding: 1rem;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .hero-content h1 {
+                font-size: 1.8rem;
+            }
+
+            section {
+                padding: 40px 1rem;
+            }
+
+            section h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">✦ THE POLISHED HOUSE</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>THE POLISHED HOUSE</h1>
+            <p class="tagline">Where Every Detail Shines</p>
+            <p>Your home deserves to be treated with care. We provide dependable, detail-oriented cleaning that keeps your home comfortable, refreshed, and consistently maintained.</p>
+            <a href="#contact" class="cta-button">Get Started</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2>About Our Weekly Maintenance Service</h2>
+            <div class="divider"></div>
+
+            <div class="about-content">
+                <div>
+                    <div class="about-icon">🏠</div>
+                    <h3>Consistent Care</h3>
+                    <p>Regular maintenance keeps your home consistently fresh, healthy, and welcoming. We take care of the routine so you can enjoy the results every week.</p>
+                </div>
+                <div>
+                    <div class="about-icon">⏱️</div>
+                    <h3>Efficient Service</h3>
+                    <p>Our team works efficiently within 2-3 hour visits to maintain your home's cleanliness and keep everything looking its best.</p>
+                </div>
+            </div>
+
+            <div class="about-content">
+                <div>
+                    <div class="about-icon">✦</div>
+                    <h3>Rotating Detail Cleaning</h3>
+                    <p>Each week, we focus on specific detail areas on a rotating basis—so every part of your home gets the attention it deserves over time.</p>
+                </div>
+                <div>
+                    <div class="about-icon">🎯</div>
+                    <h3>Maintenance, Not Deep Cleaning</h3>
+                    <p>We focus on maintaining the cleanliness of your home, not performing heavy restoration. This keeps your space consistently polished.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+        <div class="container">
+            <h2>What's Included</h2>
+            <p class="subtitle">In Our Weekly Maintenance Service</p>
+            <div class="divider"></div>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Kitchen</h3>
+                    <p>Wipe countertops & backsplash • Clean sink & polish fixtures • Wipe cabinet fronts • Clean appliance exteriors • Empty trash & replace liner • Sweep & mop floors</p>
+                </div>
+                <div class="service-card">
+                    <h3>Bedrooms</h3>
+                    <p>Make beds & straighten bedding • Dust all surfaces & décor • Wipe nightstands & dressers • Straighten & tidy • Vacuum floors • Empty trash & replace liner</p>
+                </div>
+                <div class="service-card">
+                    <h3>Bathrooms</h3>
+                    <p>Clean & sanitize countertops • Clean sink & polish fixtures • Clean mirrors • Clean toilet inside & out • Wipe cabinets • Sweep & mop floors</p>
+                </div>
+                <div class="service-card">
+                    <h3>Living Areas</h3>
+                    <p>Dust all surfaces & décor • Wipe tables & shelves • Fluff pillows & straighten • Vacuum carpets & rugs • Sweep hard floors • Empty trash & replace liner</p>
+                </div>
+                <div class="service-card">
+                    <h3>Throughout Home</h3>
+                    <p>Dust all reachable surfaces • Wipe light switches & door knobs • Straighten & tidy spaces • Vacuum carpets & rugs • Sweep hard floors • Empty trash & replace liners</p>
+                </div>
+                <div class="service-card">
+                    <h3>Extras We Love</h3>
+                    <p>Change bed linens • Fold & put away laundry • Organize small areas • Refresh high-traffic spots • Just ask about additional services we offer!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section id="why">
+        <div class="container">
+            <h2>Why Choose The Polished House</h2>
+            <p class="subtitle">Our Promise to You</p>
+            <div class="divider"></div>
+
+            <div class="why-grid">
+                <div class="why-card">
+                    <h3>Detail-Oriented</h3>
+                    <p>We care about the little things because we know they make the biggest difference in how your home feels.</p>
+                </div>
+                <div class="why-card">
+                    <h3>Customized Service</h3>
+                    <p>Every home is different. We customize our weekly maintenance service to fit your home's specific needs and priorities.</p>
+                </div>
+                <div class="why-card">
+                    <h3>Peace of Mind</h3>
+                    <p>Reliable, dependable cleaning that brings peace of mind, saves you time, and helps you love coming home.</p>
+                </div>
+                <div class="why-card">
+                    <h3>Professional & Warm</h3>
+                    <p>We treat your home with respect and care, approaching each visit with professionalism and genuine warmth.</p>
+                </div>
+                <div class="why-card">
+                    <h3>Beautiful Results</h3>
+                    <p>A well-maintained home is a lighter schedule and more time for you. That's the Polished House promise.</p>
+                </div>
+                <div class="why-card">
+                    <h3>Local & Trusted</h3>
+                    <p>Serving Russellville, Littleville, Tuscumbia, Muscle Shoals, and surrounding areas with local care and attention.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2>Get In Touch</h2>
+            <p class="subtitle">Ready to experience the difference</p>
+            <div class="divider"></div>
+
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+
+                    <div class="contact-item">
+                        <div class="icon">☎️</div>
+                        <div>
+                            <p><strong>Phone</strong></p>
+                            <p><a href="tel:+12562572394">(256) 257-2394</a></p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="icon">✉️</div>
+                        <div>
+                            <p><strong>Email</strong></p>
+                            <p><a href="mailto:ThePolishedHouseCompany@gmail.com">ThePolishedHouseCompany@gmail.com</a></p>
+                        </div>
+                    </div>
+
+                    <hr style="border: none; border-top: 1px solid var(--light-gray); margin: 2rem 0;">
+
+                    <h3 style="margin-top: 2rem;">Service Areas</h3>
+                    <p style="line-height: 1.8;">Russellville • Littleville • Tuscumbia • Muscle Shoals • Surrounding Areas</p>
+
+                    <hr style="border: none; border-top: 1px solid var(--light-gray); margin: 2rem 0;">
+
+                    <p style="font-style: italic; color: var(--gold);">We're honored to care for your home.</p>
+                </div>
+
+                <form class="contact-form" action="https://formspree.io/f/xyzpqabc" method="POST">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="address">Service Address</label>
+                        <input type="text" id="address" name="address">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Tell Us About Your Home</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+
+                    <button type="submit" class="cta-button">Send Request</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <h3>THE POLISHED HOUSE</h3>
+            <p class="tagline" style="color: var(--gold);">Where Every Detail Shines</p>
+            <div class="footer-divider"></div>
+            <div class="service-areas">Serving Russellville • Littleville • Tuscumbia • Muscle Shoals • Surrounding Areas</div>
+            <p><a href="tel:+12562572394" style="color: var(--gold); text-decoration: none;">(256) 257-2394</a> | <a href="mailto:ThePolishedHouseCompany@gmail.com" style="color: var(--gold); text-decoration: none;">ThePolishedHouseCompany@gmail.com</a></p>
+        </div>
+        <div class="copyright">
+            &copy; 2026 The Polished House Company. All rights reserved.
+        </div>
+    </footer>
+</body>
+</html>
